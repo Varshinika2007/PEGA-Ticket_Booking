@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Ticketify</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">🎟️ Ticketify</div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="events.html">Events</a>
+
+        <a href="ticket.html">My Tickets</a>
+
+        <a href="login.html">Logout</a>
+
+    </nav>
+
+</header>
+
+
+
+<section class="dashboard">
+
+    <h1>Welcome to Ticketify 👋</h1>
+
+    <p>Manage your bookings and discover new events.</p>
+
+
+    <div class="dashboard-cards">
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">🎟️</div>
+
+            <h3>My Bookings</h3>
+
+            <p id="bookingCount">0</p>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">🎬</div>
+
+            <h3>Upcoming Events</h3>
+
+            <p id="upcomingCount">0</p>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">💰</div>
+
+            <h3>Total Spent</h3>
+
+            <p id="totalSpent">₹0</p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="dashboard-action">
+
+        <h2>Ready for your next experience?</h2>
+
+        <a href="events.html" class="primary-button">
+            Explore Events
+        </a>
+
+    </div>
+
+</section>
+
+<script>
+    const userName = localStorage.getItem("userName");
+    const confirmed = JSON.parse(localStorage.getItem("confirmedBooking") || "null");
+    if (userName) document.querySelector(".dashboard > p").textContent = `Good to see you, ${userName}. Your next plan is close.`;
+    if (confirmed) {
+        document.getElementById("bookingCount").textContent = "1";
+        document.getElementById("upcomingCount").textContent = "1";
+        document.getElementById("totalSpent").textContent = `₹${confirmed.total}`;
+    }
+</script>
+
+
+</body>
+</html>

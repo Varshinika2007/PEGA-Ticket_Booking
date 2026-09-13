@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Select Seats - Ticketify</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">🎟️ Ticketify</div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+
+    </nav>
+
+</header>
+
+
+
+<section class="seat-section">
+
+    <h1>Select Your Seats</h1>
+
+    <p>Choose the seats you want to book.</p>
+
+
+    <div class="screen">
+        SCREEN
+    </div>
+
+
+    <div class="seat-container">
+
+        <button class="seat" onclick="selectSeat(this)">A1</button>
+        <button class="seat" onclick="selectSeat(this)">A2</button>
+        <button class="seat" onclick="selectSeat(this)">A3</button>
+        <button class="seat" onclick="selectSeat(this)">A4</button>
+        <br>
+
+        <button class="seat" onclick="selectSeat(this)">B1</button>
+        <button class="seat" onclick="selectSeat(this)">B2</button>
+        <button class="seat" onclick="selectSeat(this)">B3</button>
+        <button class="seat" onclick="selectSeat(this)">B4</button>
+        <br>
+
+        <button class="seat" onclick="selectSeat(this)">C1</button>
+        <button class="seat" onclick="selectSeat(this)">C2</button>
+        <button class="seat" onclick="selectSeat(this)">C3</button>
+        <button class="seat" onclick="selectSeat(this)">C4</button>
+
+    </div>
+
+
+    <div class="seat-summary">
+
+        <h3>
+            Selected Seats:
+            <span id="selectedSeats">None</span>
+        </h3>
+
+        <h3>
+            Total:
+            ₹<span id="totalPrice">0</span>
+        </h3>
+
+        <a href="booking.html" class="primary-button">
+            Continue
+        </a>
+
+    </div>
+
+</section>
+
+
+<script src="js/seats.js"></script>
+
+</body>
+</html>

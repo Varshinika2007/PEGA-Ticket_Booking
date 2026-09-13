@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Summary - Ticketify</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">🎟️ Ticketify</div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+
+    </nav>
+
+</header>
+
+
+
+<section class="booking-section">
+
+    <div class="booking-card">
+
+        <h1>Booking Summary</h1>
+
+        <p>Review your booking before payment.</p>
+
+
+        <div class="summary-row">
+
+            <span>Event</span>
+
+            <strong id="bookingEvent">Movie Night</strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>Location</span>
+
+            <strong id="bookingLocation">Chennai</strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>Date</span>
+
+            <strong id="bookingDate">20 September 2026</strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>Time</span>
+
+            <strong id="bookingTime">7:00 PM</strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>Seats</span>
+
+            <strong id="bookingSeats">None</strong>
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="summary-total">
+
+            <span>Total Amount</span>
+
+            <strong id="bookingTotal">₹0</strong>
+
+        </div>
+
+
+        <a href="payment.html" class="form-button">
+            Proceed to Payment
+        </a>
+
+    </div>
+
+</section>
+
+<script>
+    const booking = JSON.parse(localStorage.getItem("booking") || "{}");
+    const seats = JSON.parse(localStorage.getItem("selectedSeats") || "[]");
+    const total = seats.length * (Number(booking.price) || 0);
+    document.getElementById("bookingEvent").textContent = booking.title || "Select an event";
+    document.getElementById("bookingLocation").textContent = booking.location || "-";
+    document.getElementById("bookingDate").textContent = booking.date || "-";
+    document.getElementById("bookingTime").textContent = booking.time || "-";
+    document.getElementById("bookingSeats").textContent = seats.join(", ") || "None";
+    document.getElementById("bookingTotal").textContent = `₹${total}`;
+    if (!seats.length) document.querySelector(".form-button").style.pointerEvents = "none";
+</script>
+
+
+</body>
+</html>

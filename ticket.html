@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Ticket - Ticketify</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">🎟️ Ticketify</div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+
+    </nav>
+
+</header>
+
+
+
+<section class="ticket-section">
+
+    <div class="ticket-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h1>Booking Confirmed!</h1>
+
+        <p>Your ticket has been booked successfully.</p>
+
+
+        <div class="ticket-info">
+
+            <h2 id="ticketEvent">🎬 Movie Night</h2>
+
+            <p id="ticketLocation">📍 Chennai</p>
+
+            <p id="ticketDate">📅 20 September 2026</p>
+
+            <p id="ticketTime">⏰ 7:00 PM</p>
+
+            <p id="ticketSeats">💺 Seats: A1, A2</p>
+
+            <p id="ticketAmount">💰 Amount: ₹500</p>
+
+        </div>
+
+
+        <div class="qr-code">
+            ▣ ▣ ▣<br>
+            ▣ ▣ ▣<br>
+            ▣ ▣ ▣
+        </div>
+
+
+        <p>
+            Booking ID: <strong id="ticketId">TKF20260920001</strong>
+        </p>
+
+
+        <button onclick="window.print()" class="primary-button">
+            Print Ticket
+        </button>
+
+    </div>
+
+</section>
+
+<script>
+    const ticket = JSON.parse(localStorage.getItem("confirmedBooking") || "{}");
+    if (ticket.title) {
+        document.getElementById("ticketEvent").textContent = `${ticket.icon || "🎟️"} ${ticket.title}`;
+        document.getElementById("ticketLocation").textContent = `📍 ${ticket.location}`;
+        document.getElementById("ticketDate").textContent = `📅 ${ticket.date}`;
+        document.getElementById("ticketTime").textContent = `⏰ ${ticket.time}`;
+        document.getElementById("ticketSeats").textContent = `💺 Seats: ${ticket.seats.join(", ")}`;
+        document.getElementById("ticketAmount").textContent = `💰 Amount: ₹${ticket.total}`;
+        document.getElementById("ticketId").textContent = ticket.id;
+    }
+</script>
+
+
+</body>
+</html>

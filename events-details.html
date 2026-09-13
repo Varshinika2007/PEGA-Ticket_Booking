@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Details - Ticketify</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">🎟️ Ticketify</div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="dashboard.html">Dashboard</a>
+
+    </nav>
+
+</header>
+
+
+
+<section class="details-section">
+
+    <div class="details-image">
+        🎬
+    </div>
+
+
+    <div class="details-content">
+
+        <span class="event-category">
+            MOVIE
+        </span>
+
+        <h1>Movie Night</h1>
+
+        <p class="details-description">
+            Enjoy an exciting movie experience with your friends
+            and family.
+        </p>
+
+
+        <div class="details-info">
+
+            <p>📍 Chennai</p>
+
+            <p>📅 20 September 2026</p>
+
+            <p>⏰ 7:00 PM</p>
+
+            <p>🎟️ ₹250 per ticket</p>
+
+        </div>
+
+
+        <a href="seats.html" class="primary-button" id="selectSeatsLink">
+            Select Seats
+        </a>
+
+    </div>
+
+</section>
+
+<script>
+    const events = {
+        movie: { category: "MOVIE", title: "Movie Night", description: "Enjoy an exciting movie experience with your friends and family.", location: "Chennai", date: "20 September 2026", time: "7:00 PM", price: 250, icon: "🎬" },
+        concert: { category: "CONCERT", title: "Music Festival", description: "A full evening of live music, bright lights, and unforgettable sets.", location: "Chennai", date: "25 September 2026", time: "6:30 PM", price: 500, icon: "🎵" },
+        sports: { category: "SPORTS", title: "Cricket Match", description: "Catch the action live and cheer for every boundary from the stands.", location: "Chennai", date: "30 September 2026", time: "4:00 PM", price: 300, icon: "🏏" }
+    };
+    const event = events[new URLSearchParams(window.location.search).get("event")] || events.movie;
+    document.querySelector(".event-category").textContent = event.category;
+    document.querySelector(".details-image").textContent = event.icon;
+    document.querySelector(".details-content h1").textContent = event.title;
+    document.querySelector(".details-description").textContent = event.description;
+    document.querySelector(".details-info").innerHTML = `<p>📍 ${event.location}</p><p>📅 ${event.date}</p><p>⏰ ${event.time}</p><p>🎟️ ₹${event.price} per ticket</p>`;
+    document.title = `${event.title} - Ticketify`;
+    localStorage.setItem("booking", JSON.stringify(event));
+</script>
+
+
+
+<footer>
+
+    <h3>🎟️ Ticketify</h3>
+
+    <p>Your simple and smart ticket booking platform.</p>
+
+</footer>
+
+
+</body>
+</html>

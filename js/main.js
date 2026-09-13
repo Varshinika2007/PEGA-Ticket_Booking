@@ -1,0 +1,1 @@
+console.log("Ticketify application loaded successfully!");
